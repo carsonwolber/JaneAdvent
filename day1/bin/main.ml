@@ -1,3 +1,5 @@
+open Hardcaml
+
 let read_lines filename = 
   let file = open_in filename in 
     let rec loop acc =
@@ -16,8 +18,12 @@ let parse line =
 
 
 let () =
-  let lines = read_lines "directions.txt" in
-  List.iter (fun line ->
-    let (d, v) = parse line in
-    Printf.printf "Direction: %c, Value: %d\n" d v
-) lines
+  let module Sim = Cyclesim.With_interface(Circuit.I)(Circuit.O) in 
+  let sim = Sim.create Circuit.create in let inputs = Cyclesim.inputs sim in 
+  let outputs = Cyclesim.outputs sim in
+  let lines = read_lines "directions.txt" in 
+  List.iter (fun line -> 
+    let (d, v) = parse line in 
+      if d = 'L' then inputs.value := Bits.of_int ~width:12 (-1*v) else inputs.value := Bits.of_int ~width:12 v;
+      Cyclesim.cycle sim
+    ) lines ; Printf.printf "final value: %d\n" (Bits.to_signed_int !(outputs.sum))
