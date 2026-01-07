@@ -17,8 +17,8 @@ let parse line =
 
 
 let () =
-  let module Sim = Cyclesim.With_interface(Dial.I)(Dial.O) in 
-  let sim = Sim.create Dial.create in let inputs = Cyclesim.inputs sim in 
+  let module Sim = Cyclesim.With_interface(Day1.Dial.I)(Day1.Dial.O) in 
+  let sim = Sim.create Day1.Dial.create in let inputs = Cyclesim.inputs sim in 
   let outputs = Cyclesim.outputs sim in
   inputs.value := Bits.of_int ~width:12 50; Cyclesim.cycle sim; 
   let lines = read_lines "directions.txt" in 

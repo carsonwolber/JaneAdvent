@@ -1,5 +1,5 @@
 (executable
  (name main)
- (libraries hardcaml hardcaml_waveterm)
+ (libraries hardcaml day1)
  (preprocess
   (pps ppx_hardcaml ppx_sexp_conv)))

@@ -1,0 +1,6 @@
+# dune init project day2
+# OCAMLPARAM: unset
+# Shared cache: enabled-except-user-rules
+# Shared cache location: /Users/carsonwolber/.cache/dune/db
+# Workspace root: /Users/carsonwolber/JaneAdvent/day2
+# Auto-detected concurrency: 8

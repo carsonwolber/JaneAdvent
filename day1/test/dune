@@ -1,2 +1,5 @@
 (test
- (name test_day1))
+ (name test_day1)
+ (libraries hardcaml day1)
+ (preprocess
+  (pps ppx_hardcaml)))
