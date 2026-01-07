@@ -1,4 +1,5 @@
 (executable
- (public_name day1)
  (name main)
- (libraries day1))
+ (libraries hardcaml hardcaml_waveterm)
+ (preprocess
+  (pps ppx_hardcaml ppx_sexp_conv)))
