@@ -1,2 +1,4 @@
 (library
- (name day2))
+ (name day2)
+ (libraries hardcaml)
+ )
